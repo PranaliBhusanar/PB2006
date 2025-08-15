@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+ 
+void sort012(int arr[], int n) {
+    
+    
+    int lo = 0;
+    int hi = n - 1;
+    int mid = 0;
+
+  
+    while (mid <= hi) {
+        if (arr[mid] == 0) {
+                           int temp = arr[lo];
+            arr[lo++] = arr[mid];
+            arr[mid++] = temp;
+        }
+        else if (arr[mid] == 1) {
+    
+            mid++;
+        }
+        else {
+      
+            int temp = arr[mid];
+            arr[mid] = arr[hi];
+            arr[hi--] = temp;
+        }
+    }
+}
+
+int main() {
+    int arr[] = {0, 1, 2, 0, 1, 2};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    
+    sort012(arr, n);
+
+    for (int i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+
+    return 0;
+}
